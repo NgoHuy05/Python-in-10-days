@@ -1,0 +1,19 @@
+- trong python khi muon xuat ra 1 cai gi do ta su dung cau lenh print
+  cach su dung :
+
+print(object, sep, end)
+
+object : la doi tuong can xuat ra;
+sep : la khoang cach giua cac doi tuong;
+end la phan ket thuc cua phan xuat ra;
+
+ta co the su dung moi print(object) cung dc va sep mac dinh se la " " va end mac dinh la "\n"
+
+vi du print("Hello","Word")
+output ra Hello Word;
+
+-print("hello", "word", sep = '@')
+output ra hello@word
+
+-print("hello", "word", end = '@')
+output ra hello word@
