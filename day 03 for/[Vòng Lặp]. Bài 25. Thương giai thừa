@@ -1,0 +1,6 @@
+n = int(input())
+sum = 0
+import math
+for i in range(n):
+    sum += float(1)/math.factorial(i)
+print('%.4f' % sum)
