@@ -1,0 +1,9 @@
+n = int(input())
+cnt = 0
+bia = n//28
+vo = bia
+while vo >= 3:
+    biamoi = vo//3
+    bia += biamoi
+    vo = vo % 3 + biamoi
+print(bia)
