@@ -1,0 +1,10 @@
+a, b, n = map(int,input().split())
+check = 0
+for i in range(n//a+1):
+    if (n - a*i) % b == 0:
+        check = 1
+        break
+if check == 1:
+    print('YES')
+else:
+    print('NO')
