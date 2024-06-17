@@ -1,0 +1,4 @@
+import math
+if __name__ == '__main__':
+    a, b = map(int, input().split())
+    print(math.isqrt(b) + 1 - math.ceil(math.sqrt(a)))
