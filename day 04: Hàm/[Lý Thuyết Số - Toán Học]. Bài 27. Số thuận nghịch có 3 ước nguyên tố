@@ -1,0 +1,30 @@
+import math
+
+def pt(n):
+    cnt = 0
+    for i in range(2, math.isqrt(n) + 1):
+        if n % i == 0:
+            cnt += 1
+            while n % i == 0:
+                n //= i
+    if n > 1:
+        cnt += 1
+    return cnt >= 3
+
+def tn(n):
+    lat = 0
+    tmp = n
+    while n != 0:
+        lat = lat * 10 + n % 10
+        n //= 10
+    return tmp == lat
+
+if __name__ == '__main__':
+    a, b = map(int, input().split())
+    ok = False
+    for i in range(a, b + 1):
+        if tn(i) and pt(i):
+            print(i, end=' ')
+            ok = True
+    if not ok:
+        print(-1)
