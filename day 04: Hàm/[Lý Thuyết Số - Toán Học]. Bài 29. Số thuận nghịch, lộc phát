@@ -1,0 +1,31 @@
+import math
+
+def tn(n):
+    tmp = n
+    lat = 0
+    while n:
+        lat = lat * 10 + n % 10
+        n //= 10
+    return tmp == lat
+
+def sum(n):
+    tong = 0
+    while n:
+        tong += n % 10
+        n //= 10
+    return tong == 8
+
+def check(n):
+    cnt = 0
+    while n != 0:
+        r = n % 10
+        if r == 6:
+            cnt += 1
+        n //= 10
+    return cnt >= 1
+    
+if __name__ == '__main__':
+    a, b = map(int,input().split())
+    for i in range(a, b+ 1):
+        if(sum(i) and check(i) and tn(i)):
+            print(i, end = ' ')
