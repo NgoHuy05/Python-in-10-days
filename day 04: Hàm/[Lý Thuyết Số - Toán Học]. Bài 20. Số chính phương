@@ -1,0 +1,11 @@
+import math
+def pt(n):
+    can = math.sqrt(n)
+    return can*can == n
+
+if __name__ == '__main__':
+    n = int(input())
+    if pt(n):
+        print('YES')
+    else:
+        print('NO')
