@@ -1,0 +1,28 @@
+import math
+
+def check(n):
+    ok = True  # Biến này kiểm tra tính nguyên tố
+    check = True  # Biến này kiểm tra chữ số cuối cùng lớn nhất
+    for i in range(2, math.isqrt(n) + 1):
+        if n % i == 0:
+            ok = False
+            break  # Nếu n không phải là số nguyên tố, không cần kiểm tra tiếp
+
+    r = n % 10  # Chữ số cuối cùng của n
+    tmp = n
+    while tmp:
+        if tmp % 10 > r:  # Nếu bất kỳ chữ số nào lớn hơn chữ số cuối cùng
+            check = False
+            break
+        tmp //= 10
+    
+    return ok and check
+
+if __name__ == '__main__':
+    n = int(input())
+    cnt = 0
+    for i in range(2, n+1):  # Sửa lại dải lặp để bao gồm n
+        if check(i):
+            cnt += 1
+            print(i, end = ' ')
+    print('\n', cnt)
