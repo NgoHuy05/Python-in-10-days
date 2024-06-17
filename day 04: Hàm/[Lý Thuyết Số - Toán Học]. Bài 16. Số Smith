@@ -1,0 +1,30 @@
+import math
+def nt(n):
+    for i in range(2, math.isqrt(n) + 1):
+        if n % i == 0:
+            return 0
+    return n > 1
+def tong(n):
+    s = 0
+    while n != 0:
+        s += n % 10
+        n //= 10
+    return s
+def pt(n):
+    sum = 0
+    for i in range(2,math.isqrt(n)+1):
+            while n % i == 0:
+                n //= i
+                sum += tong(i)
+    if n > 1:
+        sum += tong(n)
+    return sum
+
+     
+if __name__ == '__main__':
+    n = int(input())
+    if not(nt(n)) and pt(n) == tong(n):
+        print('YES')
+    else:
+        print('NO')
+    
