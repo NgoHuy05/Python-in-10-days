@@ -1,0 +1,21 @@
+import math
+
+def S1(n): 
+    if n < 10:
+       print(n, end = ' ')
+    else:
+        S1(n // 10)
+        print(n%10, end = ' ')
+
+def S2(n): 
+    if n < 10:
+       print(n, end = ' ')
+    else:
+        print(n%10, end = ' ')
+        S2(n // 10)
+
+if __name__ == '__main__':
+    n = int(input())
+    S1(n)
+    print()
+    S2(n)
