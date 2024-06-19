@@ -1,0 +1,11 @@
+import math
+
+def sum(n): 
+    if n < 10:
+        return 1
+    else:
+        return 1 + sum(n // 10)
+
+if __name__ == '__main__':
+    n = int(input())
+    print(sum(n))
