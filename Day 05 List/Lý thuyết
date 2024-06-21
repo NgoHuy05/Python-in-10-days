@@ -1,0 +1,24 @@
+- Khác các ngôn ngữ khác List giống mảng nhưng có thể lưu trữ được các kiểu dữ liệu khác nhau trong cùng 1 list 
+vd : int, string, char...
+a = [1, 2, 3, 'huydeptrai', 's', 5 +4j]
+- Muốn in ra sô phần tử của list : print(len(a)) 
+vd trên ra : 6
+- Chỉ số của list có thêm cả negative index:
+vd trêm: a[0] -> a[5] or a[-6] -> a[-1] 
+- Áp dụng vào duyệt for: for i in range(len(a)) or for i in range(len(a) - 1, -1, -1)
+- append(): thêm 1 phần tử vào cuối list 
+vd: a.append('tinhte') - a = [1, 2, 3, 'huydeptrai', 's', 5 +4j, 'tinhte']
+- insert(): chèn vào 1 vị trí bất kì vào list
+vd: a.insert(1, 5) - a = [1, 5, 2, 3, 'huydeptrai', 's', 5 +4j, 'tinhte']
+- pop(): xóa phần tử ra khỏi list thông qua chỉ số nếu ko có chỉ số thì mặc định xóa phần tử cuối
+vd a.pop() - a = [1, 5, 2, 3, 'huydeptrai', 's', 5 +4j]
+   a.pop(4) - a = [1, 5, 2, 3, 's', 5 +4j]
+hoặc sử dụng del - del a[0] - a = [5, 2, 3, 's', 5 +4j]
+- remove(x): xóa đi giá trị x đầu tiên xuất hiện trong mảng
+vd a.remove(5) - a = [1, 2, 3, 's', 5 +4j]
+- clear(): xóa mọi phần tử của list
+- sao chép list: b = a*2 - b = [1, 2, 3, 's', 5 +4j, 1, 2, 3, 's', 5 +4j]
+- cộng list : a.extend(b) == a + b - print(a): [1, 2, 3, 's', 5 +4j, 1, 2, 3, 's', 5 +4j, 1, 2, 3, 's', 5 +4j]
+- copy(): trả về bản sao của list nhưng ko phải list ban đầu
+- count(): trả về số lần xuất hiện của phần tử trong list
+- index(): trả về chỉ số xuất hiện đầu tiên của phần tử trong list
