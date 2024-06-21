@@ -1,0 +1,39 @@
+# Slicing
+- cú pháp: a[start, stop, step]
+vd a = [1, 2, 3, 4, 5, 6]
+b = a[2 : 5 : 1] ~ a[2 : 5]
+print(b)
+output: [3, 4, 5]
+- Có thể gán phần bị cắt thành iterable
+vd b = [100]
+output: ko phải là [3, 4, 5] nữa mà là [100]
+- Lật ngược list: a[::-1]
+- Chèn đầu: a[:0]
+- Chèn cuối: a[len(a):]
+- Xóa các phần tử cắt: a[2 : 5 : 1] = []
+print(a): a = [1, 2, 6]
+
+# Lambda
+- Cú pháp: name = lambda parameters : expression 
+Nó sẽ tự động trả về kiểu return mà ko cần viết return
+vd res = (lambda x : x*2)(10)
+print(res) 
+~ print((lambda x : x *2)(10))
+output: 20
+- map() va lambda
+a = [1, 2, 3, 4, 5]
+b = list(map(lambda x : x * 2, a))
+print(b)
+[2, 4, 6, 8, 10]
+- filter() và lambda
+b = list(filter(lambda : x > 3, a))
+print(b)
+[4, 5]
+
+# List Comprehension
+- Cú pháp: [Expression for variable in iterable]
+- Cú pháp: [Expression for variable in iterable if_clause]
+a = [1, 2, 3, 4, 5, 6]
+b = [for i in range(a) if i % 2 == 0]
+print(b)
+[2, 4, 6]
