@@ -1,0 +1,48 @@
+from math import *
+def nt(n):
+    for i in range(2, isqrt(n) + 1):
+        if n % i == 0:
+            return 0
+    return n > 1
+def tn(n):
+    tmp, lat = n, 0
+    while n:
+        lat = lat * 10 + n % 10
+        n //= 10
+    if lat == tmp:
+        return 1
+    else:
+        return 0
+def cp(n):
+    can = isqrt(n)
+    return can * can == n
+def check(n):
+    sum = 0
+    while n:
+        sum += n%10
+        n //= 10
+    return nt(sum)
+
+if __name__ == '__main__':
+    n = int(input())
+    a = list(map(int,input().split()))
+    snt, stn, scp, tsnt = 0, 0, 0, 0      
+    for x in a:
+        if nt(x):
+            snt += 1
+        if tn(x):
+            stn += 1
+        if cp(x):
+            scp += 1
+        if check(x):
+            tsnt += 1
+    print(snt)
+    print(stn)
+    print(scp)
+    print(tsnt)
+
+
+        
+
+    
+    
