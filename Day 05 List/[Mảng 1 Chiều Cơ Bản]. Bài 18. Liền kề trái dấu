@@ -1,0 +1,21 @@
+from math import *
+
+if __name__ == '__main__':
+    n = int(input())
+    a = list(map(int,input().split()))
+    for i in range(len(a)):
+            if i == 0:
+                if a[0] * a[1] < 0:
+                    print(a[0], end = ' ')
+            elif i == len(a) - 1:
+                if a[len(a) - 1] * a[len(a) - 2] < 0:
+                    print(a[len(a) - 1], end = ' ')
+            else:
+                if a[i] * a[i-1] < 0 or a[i] * a[i+1] < 0:
+                    print(a[i], end = ' ')
+        
+
+        
+
+    
+    
