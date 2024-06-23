@@ -1,0 +1,16 @@
+from math import *
+from collections import Counter
+if __name__ == '__main__':
+    n = int(input())
+    a = list(map(int,input().split()))
+    d = {}
+    for x in a:
+        d[x] = 1
+    print(len(d))
+
+from math import *
+if __name__ == '__main__':
+    n = int(input())
+    a = list(map(int,input().split()))
+    s = set(a)
+    print(len(s))
