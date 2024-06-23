@@ -1,0 +1,20 @@
+from math import *
+prime = [1] * (10**6 + 1)
+def sang():
+    prime[0] = prime[1] = 0
+    for i in range(2, isqrt(10**6+1)):
+        if prime[i]:
+            for j in range(i*i, 10**6+1,i):
+                prime[j] = 0
+
+if __name__ == '__main__':
+    n = int(input())
+    a = list(map(int,input().split()))
+    sang()
+    for x in a:
+        if prime[x]:
+            print('YES')
+        else:
+            print('NO')
+    
+
