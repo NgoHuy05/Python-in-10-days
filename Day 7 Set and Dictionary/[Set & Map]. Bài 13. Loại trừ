@@ -1,0 +1,13 @@
+from math import *
+from functools import cmp_to_key
+
+if __name__ == '__main__':
+    n, m = map(int,input().split())
+    a = list(map(int,input().split()))
+    b = list(map(int,input().split()))
+    c = list(set(a) - set(b))
+    c.sort()
+    for x in c:
+        print(x, end = ' ')
+    
+
