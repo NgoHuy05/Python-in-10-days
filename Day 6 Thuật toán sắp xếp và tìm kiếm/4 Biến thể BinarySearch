@@ -1,0 +1,64 @@
+from math import *
+def BinarySearch1(a, l, r, x):
+    res = -1
+    while l <= r:
+        m = (l+r)//2
+        if a[m] == x:
+            res = m
+            r = m - 1
+        elif a[m] < x:
+            l = m + 1
+        else:
+            r = m - 1
+    return res
+
+def BinarySearch2(a, l, r, x):
+    res = -1
+    while l <= r:
+        m = (l+r)//2
+        if a[m] == x:
+            res = m
+            l = m + 1
+        elif a[m] < x:
+            l = m + 1
+        else:
+            r = m - 1
+    return res
+
+def BinarySearch3(a, l, r, x):
+    res = -1
+    while l <= r:
+        m = (l+r)//2
+        if a[m] >= x:
+            res = m
+            r = m - 1
+        else:
+            l = m + 1
+    return res
+
+def BinarySearch4(a, l, r, x):
+    res = -1
+    while l <= r:
+        m = (l+r)//2
+        if a[m] > x:
+            res = m
+            r = m - 1
+        else:
+            l = m + 1
+    return res
+
+if __name__ == '__main__':
+    n, x = map(int, input().split())
+    a = list(map(int,input().split()))
+    a.sort()
+    print(BinarySearch1(a, 0, len(a) - 1, x))
+    print(BinarySearch2(a, 0, len(a) - 1, x))
+    print(BinarySearch3(a, 0, len(a) - 1, x))
+    print(BinarySearch4(a, 0, len(a) - 1, x))
+    if BinarySearch1(a, 0, len(a) - 1, x) != -1:
+        print(BinarySearch2(a, 0, len(a) - 1, x) - BinarySearch1(a, 0, len(a) - 1, x) + 1)
+    else:
+        print(0)
+
+
+        
