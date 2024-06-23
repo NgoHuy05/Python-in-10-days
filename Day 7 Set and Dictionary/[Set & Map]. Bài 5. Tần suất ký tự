@@ -1,0 +1,18 @@
+from math import *
+from collections import Counter
+
+if __name__ == '__main__':
+    n = int(input())
+    a = list(map(str,input().split()))
+    c = dict(Counter(a))
+    s = sorted(c.keys())
+    print(s[0], c[s[0]])
+    print(s[-1], c[s[-1]])
+    for key in s:
+        print(key, c[key])
+    s1 = sorted(c.keys(), reverse=True)
+    for key in s1:
+        print(key, c[key])
+    
+    
+
