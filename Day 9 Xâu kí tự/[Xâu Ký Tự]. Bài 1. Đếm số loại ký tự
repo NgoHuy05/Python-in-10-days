@@ -1,0 +1,13 @@
+from math import *
+
+if __name__ == '__main__':
+    s = input()
+    kitu, so, kt = 0, 0, 0
+    for i in s:  
+        if i.isdigit():
+            so += 1
+        elif i.isalpha():
+            kitu += 1
+        else:
+            kt += 1
+    print(kitu, so, kt, end = ' ')
