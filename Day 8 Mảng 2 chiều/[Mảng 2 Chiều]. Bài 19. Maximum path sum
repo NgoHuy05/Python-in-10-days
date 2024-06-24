@@ -1,0 +1,20 @@
+from math import *
+
+if __name__ == '__main__':
+    n,m = map(int,input().split())
+    a = []
+    for i in range(n):
+       x = list(map(int,input().split()))
+       a.append(x)
+    F = [[0 for i in range(m)] for i in range(n)]
+    for i in range(n):
+        for j in range(m):
+            if i == 0 and j == 0:
+                F[0][0] = a[0][0]
+            elif i == 0:
+                F[i][j] = a[i][j] + F[i][j-1]
+            elif j == 0:
+                F[i][j] = a[i][j] + F[i-1][j]
+            else:
+                F[i][j] = max(F[i-1][j],F[i][j-1]) + a[i][j]
+    print(F[n-1][m-1])
