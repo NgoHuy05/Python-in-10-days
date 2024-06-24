@@ -1,0 +1,21 @@
+from math import *
+
+if __name__ == '__main__':
+    s = input()
+    d = dict({})
+    for x in s:
+        if x in d:
+            d[x] += 1
+        else:
+            d[x] = 1
+    maxx,minn = -10e9,10e9
+    cmax,cmin = ' ', ' '
+    for i in sorted(d):
+        if d[i] >= maxx:
+            maxx = d[i]
+            cmax = i
+        if d[i] <= minn:
+            minn = d[i]
+            cmin = i
+    print(cmax, maxx)
+    print(cmin,minn)
