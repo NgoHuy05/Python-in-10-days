@@ -1,0 +1,20 @@
+from math import *
+def tn(n):
+    tmp, lat = n, 0
+    while n:
+        lat = lat * 10 + n % 10
+        n //= 10
+    return tmp == lat
+
+if __name__ == '__main__':
+    n = int(input())
+    a = []
+    for i in range(n):
+        b = list(map(int,input().split()))
+        a.append(b)
+    cnt = 0
+    for i in range(n):
+        for j in range(i+1):
+            if tn(a[i][j]):
+                cnt += 1
+    print(cnt)        
