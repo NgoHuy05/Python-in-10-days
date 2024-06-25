@@ -1,0 +1,20 @@
+from math import *
+
+if __name__ == '__main__':
+    s = input()
+    res = 'python'
+    index = 0
+    for x in s:
+       if index < len(res) and x == res[index]:
+           index += 1
+    if index == len(res):
+        print('YES')
+    else:
+        print('NO')
+
+
+        
+
+    
+            
+    
