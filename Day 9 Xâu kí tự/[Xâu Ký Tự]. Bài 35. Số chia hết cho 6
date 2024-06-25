@@ -1,0 +1,25 @@
+from math import *
+
+
+def check(s):
+    sum, last = 0, int(s) % 10
+    if last % 2 != 0:
+        return 0
+    for x in s:
+        sum += int(x)
+    return sum % 3 == 0
+if __name__ == '__main__':
+    s = input()
+    if check(s):
+        print('YES')
+    else:
+        print('NO')
+
+
+    
+
+        
+
+    
+            
+    
