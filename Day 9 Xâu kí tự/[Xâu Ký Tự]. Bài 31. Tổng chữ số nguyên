@@ -1,0 +1,18 @@
+from math import *
+def sum(s):
+    tong = 0
+    for x in s:
+        tong += int(x)
+    return tong
+if __name__ == '__main__':
+    s = input()
+    print(sum(s))
+
+
+    
+
+        
+
+    
+            
+    
