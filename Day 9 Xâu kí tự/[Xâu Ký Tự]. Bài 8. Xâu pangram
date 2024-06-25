@@ -1,0 +1,13 @@
+from math import *
+
+
+if __name__ == '__main__':
+    s = input()
+    se = set(s.lower())
+    if len(se) == 26:
+        print('YES')
+    else:
+        print('NO')
+    
+            
+    
