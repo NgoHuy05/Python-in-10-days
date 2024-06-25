@@ -1,0 +1,27 @@
+from math import *
+
+
+def check(s):
+    suml,sumc = 0, 0
+    for i in range(len(s)):
+        if i % 2 == 0:
+            sumc += int(s[i])
+        else:
+            suml += int(s[i])
+    return abs(sumc - suml) % 11 == 0
+
+if __name__ == '__main__':
+    s = input()
+    if check(s):
+        print('YES')
+    else:
+        print('NO')
+
+
+    
+
+        
+
+    
+            
+    
