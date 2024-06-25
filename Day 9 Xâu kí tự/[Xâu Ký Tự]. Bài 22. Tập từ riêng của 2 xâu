@@ -1,0 +1,20 @@
+from math import *
+
+if __name__ == '__main__':
+    s1 = input().lower().split()
+    s2 = input().lower().split()
+    set1 = set(s1)
+    set2 = set(s2)
+    a = []
+    for x in set1:
+       if x not in set2:
+           a.append(x)
+    for x in sorted(a):
+        print(x, end = ' ')
+
+
+        
+
+    
+            
+    
