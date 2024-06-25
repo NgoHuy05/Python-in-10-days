@@ -1,0 +1,17 @@
+from math import *
+
+if __name__ == '__main__':
+    s1 = input()
+    s2 = input()
+    se1 = set(s1)
+    se2 = set(s2)
+    for x in sorted(se1):
+        if x not in se2:
+            print(x, end = '')
+    print()
+    for x in sorted(se2):
+        if x not in se1:
+            print(x, end = '')
+    
+            
+    
