@@ -1,0 +1,23 @@
+from math import *
+
+
+def check(s):
+    last = int(s) % 100
+    if int(s) % 25 != 0 and last != 0:
+        return 0
+    return 1
+if __name__ == '__main__':
+    s = input()
+    if check(s):
+        print('YES')
+    else:
+        print('NO')
+
+
+    
+
+        
+
+    
+            
+    
