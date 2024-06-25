@@ -1,0 +1,27 @@
+from math import *
+
+if __name__ == '__main__':
+    t = int(input())
+    d = dict()
+    for i in range(t):
+        s = input().lower().split()
+        tk,mk = '', ''
+        tk += s[len(s)-2]
+        for i in range(0, len(s) - 2):
+            tk += s[i][0]
+        if tk in d:
+            d[tk] += 1
+            print(tk,d[tk],'@xyz.edu.vn', sep = '')
+        else:
+            d[tk] = 1
+            print(tk,'@xyz.edu.vn', sep = '')
+        a = s[len(s) - 1].split('/')
+        for x in a:
+            mk += str(int(x))
+        print(mk)
+
+        
+
+    
+            
+    
