@@ -1,0 +1,28 @@
+from math import *
+
+if __name__ == '__main__':
+    s = input().split()
+    se = set()
+    d = dict({})  
+    for x in s:
+        if x in d:
+            d[x] += 1
+        else:
+            d[x] = 1
+    maxx,minn = -10e8,10e8
+    cmax,cmin = ' ', ' '
+    for x in sorted(d):
+        if d[x] >= maxx:
+            maxx = d[x]
+            cmax = x
+        if d[x] <= minn:
+            minn = d[x]
+            cmin = x
+    print(cmax, maxx, end = '\n')
+    print(cmin, minn)
+        
+
+
+    
+            
+    
