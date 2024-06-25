@@ -1,0 +1,22 @@
+from math import *
+
+if __name__ == '__main__':
+    t = int(input())
+    for i in range(t):
+        s = input().lower().split()
+        tk,mk = '', ''
+        tk += s[len(s)-2]
+        for i in range(0, len(s) - 2):
+            tk += s[i][0]
+        tk += '@xyz.edu.vn'
+        a = s[len(s) - 1].split('/')
+        for x in a:
+            mk += str(int(x))
+        print(tk)
+        print(mk)
+
+        
+
+    
+            
+    
