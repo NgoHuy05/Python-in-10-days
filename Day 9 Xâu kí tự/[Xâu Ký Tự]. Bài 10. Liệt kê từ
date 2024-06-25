@@ -1,0 +1,17 @@
+from math import *
+
+
+if __name__ == '__main__':
+    s = input().split()
+    se = set(s)
+    for x in sorted(se):
+        print(x, end = ' ')
+    print()
+    seen = set({})
+    for x in s:
+        if x not in seen:
+            seen.add(x)
+            print(x, end = ' ')
+    
+            
+    
