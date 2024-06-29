@@ -1,0 +1,40 @@
+from math import *
+from functools import cmp_to_key
+class SinhVien:
+    pass
+    def __init__(self, id, name, lop, date, gpa):
+        self.__id = 'SV' + str(id).zfill(3)
+        self.__name = name
+        self.__lop = lop
+        self.__date = date
+        self.__gpa = gpa
+    def get_id(self):
+        return self.__id
+    def get_gpa(self):
+        return self.__gpa
+    def ch(self):
+        self.__name = self.__name.title()
+        if self.__date[1] == '/':
+            self.__date = '0' + self.__date
+        if self.__date[4] == '/':
+            self.__date = self.__date[0:3] + '0' + self.__date[3:]
+    def __str__(self):
+        return f'{self.__id} {self.__name} {self.__lop} {self.__date} {self.__gpa:.2f}'
+def cmp(a,b):
+    if a.get_gpa() != b.get_gpa():
+        return b.get_gpa() - a.get_gpa()
+    else:
+        if a.get_gpa() < b.get_gpa():
+            return -1
+        else:
+            return 1
+if __name__ == '__main__':
+    n = int(input())
+    a = []
+    for i in range(n):
+        m = SinhVien(i + 1, input(), input(), input(), float(input()))
+        m.ch()
+        a.append(m)
+    a.sort(key = cmp_to_key(cmp))
+    for i in a:
+        print(i, end = '\n')
