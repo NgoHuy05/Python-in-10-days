@@ -1,0 +1,35 @@
+from math import *
+class NhanVien:
+    pass
+    id = '00001'
+    def __init__(self, name, gt, date, place, ma, ngay):
+        self.__name = name
+        self.__gt = gt
+        self.__date = date
+        self.__place = place
+        self.__ma = ma
+        self.__ngay = ngay
+    def ch(self):
+        self.__name = self.__name.title()
+        if self.__date[1] == '/':
+            self.__date = '0' + self.__date
+        if self.__date[4] == '/':
+            self.__date = self.__date[0:3] + '0' + self.__date[3:] 
+        if self.__ngay[1] == '/':
+            self.__ngay = '0' + self.__ngay
+        if self.__ngay[4] == '/':
+            self.__ngay = self.__ngay[0:3] + '0' + self.__ngay[3:] 
+    def __str__(self):
+        return f'{self.id} {self.__name} {self.__gt} {self.__date} {self.__place} {self.__ma} {self.__ngay}'
+    
+
+if __name__ == '__main__':
+    name = input()
+    gt = input()
+    date = input()
+    place = input()
+    ma = input()
+    ngay = input()
+    nv = NhanVien(name, gt, date, place, ma, ngay)
+    nv.ch()
+    print(nv)
