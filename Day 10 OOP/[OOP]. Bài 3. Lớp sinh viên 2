@@ -1,0 +1,26 @@
+from math import *
+class HocSinh:
+    pass
+    id = 'SV001'
+    def __init__(self, name, lop, date, gpa):
+        self.__name = name
+        self.__lop = lop
+        self.__date = date
+        self.__gpa = gpa
+    def ch(self):
+        if self.__date[1] == '/':
+            self.__date = '0' + self.__date
+        if self.__date[4] == '/':
+            self.__date = self.__date[0:3] + '0' + self.__date[3:] 
+    def __str__(self):
+        return f'{self.id} {self.__name} {self.__lop} {self.__date} {self.__gpa:.1f}'
+    
+
+if __name__ == '__main__':
+    name = input()
+    lop = input()
+    date = input()
+    gpa = float(input())
+    hs = HocSinh(name, lop, date, gpa)
+    hs.ch()
+    print(hs)
