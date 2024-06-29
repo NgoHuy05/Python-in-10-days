@@ -1,0 +1,46 @@
+from math import *
+from functools import cmp_to_key
+class HocSinh:
+    def __init__(self, id, name, score):
+        self.__id = 'HS' + str(id).zfill(2)
+        self.__name = name
+        self.__score = score[: :]
+    def get_tb(self):
+        return sum(self.__score) / 10
+    def get_id(self):
+        return self.__id
+    def __str__(self):
+        res = ''
+        dtb = sum(self.__score) / 10
+        if dtb >= 9:
+            res = 'XUAT SAC'
+        elif 8 <= dtb <= 8.9:
+            res = 'GIOi'
+        elif 7 <= dtb <= 7.9:
+            res = 'KHA'
+        elif 5 <= dtb <= 6.9:
+            res = 'TB'
+        else:
+            res = 'YEU'
+        return f'{self.__id} {self.__name} {self.get_tb():.1f} {res}'
+def cmp(a,b):
+    dtb1,dtb2 = a.get_tb(), b.get_tb()
+    if dtb1 != dtb2:
+        if dtb1 > dtb2:
+            return -1
+        else:
+            return 1
+    else:
+        if a.get_id() < b.get_id():
+            return -1
+        else:
+            return 0
+if __name__ == '__main__':
+    n = int(input())
+    a = []
+    for i in range(n):
+        m = HocSinh(i+1,input(), list(map(float,input().split())))
+        a.append(m)
+    a.sort(key = cmp_to_key(cmp))
+    for i in a:
+        print(i, end = '\n')
