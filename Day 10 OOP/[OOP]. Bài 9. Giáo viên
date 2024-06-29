@@ -1,0 +1,27 @@
+from math import *
+class GiaoVien:
+    pass
+    def __init__(self,id, name, salary):
+        self.__id = id
+        self.__name = name
+        self.__salary = salary
+    def wage(self):
+        if self.__id[0:2] == 'HT':
+            self.__salary = self.__salary * int(self.__id[2:4]) + 2000000
+        elif self.__id[0:2] == 'HP':
+             self.__salary = self.__salary * int(self.__id[2:4]) + 900000
+        else:
+             self.__salary = self.__salary * int(self.__id[2:4]) + 500000
+        return self.__salary
+    def __str__(self):
+        tmp = int(self.__id[2:4])
+        return f'{self.__id} {self.__name} {tmp} {self.wage()}'
+    
+
+if __name__ == '__main__':
+    id = input()
+    name = input()    
+    salary = int(input())
+    
+    gv = GiaoVien(id, name, salary)
+    print(gv)
