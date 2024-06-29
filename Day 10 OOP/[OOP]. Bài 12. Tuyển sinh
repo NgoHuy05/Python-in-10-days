@@ -1,0 +1,41 @@
+from math import *
+class ThiSinh:
+    pass
+    def __init__(self, id, name, toan, ly, hoa):
+        self.__id = id
+        self.__name = name
+        self.__toan = toan  
+        self.__ly = ly
+        self.__hoa = hoa
+    def diemcong(self):
+        diem = 0
+        if self.__id[0:3] == 'KV3':
+            diem = 2.5
+        elif self.__id[0:3] == 'KV2':
+            diem = 1
+        else:
+            diem = 0.5
+        return diem
+    def score(self):
+        return self.__toan + self.__ly + self.__hoa + self.diemcong()
+    def status(self):
+        res = ''
+        if self.score() >= 24:
+            res = 'TRUNG TUYEN'
+        else:
+            res = 'TRUOT'
+        return res
+    def __str__(self):
+        score = self.score()
+        score_str = f'{score:.1f}' if score % 1 != 0 else f'{int(score)}'
+        return f'{self.__id} {self.__name} {int(self.__id[2])} {score_str} {self.status()}'
+    
+
+if __name__ == '__main__':
+    id = input()
+    name = input()    
+    toan= float(input())
+    ly = float(input())
+    hoa = float(input())
+    ts = ThiSinh(id, name,toan, ly, hoa)
+    print(ts)
