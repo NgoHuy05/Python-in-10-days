@@ -1,0 +1,31 @@
+from math import *
+class Player:
+    def __init__(self, user, mk, name, timein,timeout):
+        self.__name = name
+        self.__mk = mk
+        self.__user = user
+        self.__timein = timein
+        self.__timeout = timeout
+    def get_user(self):
+        return self.__user
+    def tinhgio(self):
+        h1, m1 = int(self.__timein[0:2]), int(self.__timein[3:])
+        h2, m2 = int(self.__timeout[0:2]), int(self.__timeout[3:])
+        time1 = h1 * 60 + m1
+        time2 = h2 * 60 + m2
+        return time2 - time1
+    def __str__(self):
+        tgian = self.tinhgio()
+        gio = tgian // 60
+        phut = tgian % 60
+        return f'{self.__user} {self.__mk} {self.__name} {gio} gio {phut} phut'
+
+if __name__ == '__main__':
+    n = int(input())
+    a = []
+    for i in range(n):
+        m = Player(input(), input(), input(),input(),input())
+        a.append(m)
+    a.sort(key = lambda x : (-x.tinhgio(),x.get_user()))
+    for i in a:
+        print(i, end = '\n')
