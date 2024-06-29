@@ -1,0 +1,36 @@
+from math import *
+from functools import cmp_to_key
+class MatHang:
+    pass
+    def __init__(self, id, name, donvi, buy, sell):
+        self.__id = str(id)
+        while len(self.__id) < 4:
+            self.__id = '0' + self.__id
+        self.__id = 'MH' + self.__id
+        self.__name = name
+        self.__donvi = donvi 
+        self.__buy = buy
+        self.__sell = sell
+    def loinhuan(self):
+        return self.__sell - self.__buy
+    def getID(self):
+        return self.__id
+    def __str__(self):
+        return f'{self.__id} {self.__name} {self.__donvi} {self.__buy} {self.__sell} {self.loinhuan()}'
+def cmp(a,b):
+    if a.loinhuan() != b.loinhuan():
+        return b.loinhuan() - a.loinhuan()
+    else:
+        if a.getID() > b.getID():
+            return 1
+        else:
+            return -1
+if __name__ == '__main__':
+    n = int(input())
+    a = []
+    for i in range(n):
+        m = MatHang(str(i + 1), input(), input(), int(input()), int(input()))
+        a.append(m)
+    a.sort(key = cmp_to_key(cmp))
+    for i in a:
+        print(i, end = '\n')
