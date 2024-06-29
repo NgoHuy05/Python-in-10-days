@@ -1,0 +1,29 @@
+from math import *
+from functools import cmp_to_key
+from sys import stdin
+class HocSinh:
+    def __init__(self, id, name, lop, gmail):
+        self.__id = id
+        self.__name = name
+        self.__lop = lop
+        self.__gmail = gmail
+    def get_id(self):
+        return self.__id
+    def __str__(self):
+        return f'{self.__id} {self.__name} {self.__lop} {self.__gmail}'
+def cmp(a,b):
+        if a.get_id() < b.get_id():
+            return -1
+        else:
+            return 1
+if __name__ == '__main__':
+    a = []
+    line = []
+    for x in stdin:
+        line.append(x[:-1])
+    for i in range(0, len(line), 4):
+        h = HocSinh(line[i], line[i+1], line[i+2],line[i+3])
+        a.append(h)
+    a.sort(key = cmp_to_key(cmp))
+    for i in a:
+        print(i, end = '\n')
