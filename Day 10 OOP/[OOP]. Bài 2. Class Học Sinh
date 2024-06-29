@@ -1,0 +1,30 @@
+from math import *
+class HocSinh:
+    def __init__(self, name, date, toan, ly, hoa):
+        self.__name = name
+        self.__date = date
+        self.__toan = toan
+        self.__ly = ly
+        self.__hoa = hoa
+    def __str__(self):
+        sum = toan + ly + hoa
+        return f'{self.__name} {self.__date} {sum:.1f}'
+    
+
+if __name__ == '__main__':
+    name = input()
+    date = input()
+    toan = float(input())
+    ly = float(input())
+    hoa = float(input())
+    hs = HocSinh(name, date,toan,ly,hoa)
+    print(hs)
+
+
+    
+
+        
+
+    
+            
+    
