@@ -1,0 +1,67 @@
+from math import *
+class Person:
+    def __init__(self,id, name, date, place):
+        self.__id = id
+        self.__name = name
+        self.__date = date
+        self.__place = place
+    def get_name(self):
+        return self.__name
+    def get_id(self):
+        return self.__id
+    def get_place(self):
+        return self.__place
+    def ch(self):
+        tmp = self.__name.split()
+        self.__name = ' '.join(tmp).title()
+        if self.__date[1] == '/':
+            self.__date = '0' + self.__date
+        if self.__date[4] == '/':
+            self.__date = self.__date[0:3] + '0' + self.__date[3:]
+    def __str__(self):
+        return f'{self.__id} {self.__name} {self.__date} {self.__place}'
+
+class SinhVien(Person):
+    def __init__(self,id, name, date, place, lop, gpa):
+        Person.__init__(self,id,name,date,place)
+        self.__lop = lop
+        self.__gpa = gpa
+    def get_gpa(self):
+        return self.__gpa
+    def __str__(self):
+        return f'{super().__str__()} {self.__lop} {self.__gpa:.2f}'
+
+class GiaoVien(Person):
+    def __init__(self,id, name, date, place, khoa, luong):
+        Person.__init__(self,id,name,date,place)
+        self.__khoa = khoa
+        self.__luong = luong
+    def get_luong(self):
+        return self.__luong
+    def __str__(self):
+        return f'{super().__str__()} {self.__khoa} {self.__luong}'
+
+    
+if __name__ == '__main__':
+    n = int(input())
+    sv,gv =[], []
+    for i in range(n):
+        id = input()
+        if id[0:2] == 'SV':
+            name,date,place,lop,gpa = input(),input(),input(),input(),float(input())
+            x = SinhVien(id, name, date, place, lop, gpa)
+            x.ch()
+            sv.append(x)
+        else:
+            name,date,place,khoa,luong = input(),input(),input(),input(),int(input())
+            y = GiaoVien(id, name, date, place, khoa, luong)
+            y.ch()
+            gv.append(y)
+    sv.sort(key = lambda x : (-x.get_gpa(), x.get_id()))
+    gv.sort(key = lambda x : (-x.get_luong(),x.get_id()))
+    print('DANH SACH GIAO VIEN :')
+    for i in gv:
+            print(i)
+    print('DANH SACH SINH VIEN :')
+    for i in sv:
+            print(i)
