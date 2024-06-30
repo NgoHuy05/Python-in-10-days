@@ -1,0 +1,52 @@
+from math import *
+class Vehical:
+    def __init__(self,id, name, label, color,price):
+        self.__id = id
+        self.__name = name
+        self.__label = label
+        self.__color = color
+        self.__price = price
+    def get_name(self):
+        return self.__name
+    def get_price(self):
+        return self.__price
+    def __str__(self):
+        return f'{self.__id} {self.__name} {self.__label} {self.__color}'
+
+class Motorbike(Vehical):
+    def __init__(self,id, name, label, color, speed, price):
+        Vehical.__init__(self,id,name,label, color, price)
+        self.__speed = speed
+    def __str__(self):
+        return f'{super().__str__()} {self.__speed} {self.get_price()}'
+
+class Car(Vehical):
+    def __init__(self,id, name, label, color, maluc, price):
+        Vehical.__init__(self,id,name,label, color, price)
+        self.__maluc = maluc
+    def __str__(self):
+        return f'{super().__str__()} {self.__maluc} {self.get_price()}'
+
+    
+if __name__ == '__main__':
+    n = int(input())
+    car,motor =[], []
+    for i in range(n):
+        id = input()
+        if id[0:2] == 'XM':
+            name, label, color, speed, price = input(),input(),input(),int(input()),int(input())
+            x = Motorbike(id, name, label, color, speed, price)
+            motor.append(x)
+        else:
+            name, label, color, maluc, price = input(),input(),input(),int(input()),int(input())
+            y = Car(id, name, label, color, maluc, price)
+            car.append(y)
+    a, b = map(int,input().split())
+    print('DANH SACH OTO :')
+    for i in car:
+        if  a <= i.get_price() <= b:
+            print(i)
+    print('DANH SACH XE MAY :')
+    for i in motor:
+         if  a <= i.get_price() <= b:
+            print(i)
