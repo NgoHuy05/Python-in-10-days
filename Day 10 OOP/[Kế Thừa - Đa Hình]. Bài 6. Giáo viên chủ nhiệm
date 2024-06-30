@@ -1,0 +1,69 @@
+from math import *
+class Person:
+    def __init__(self,id, name, date, place):
+        self.__id = id
+        self.__name = name
+        self.__date = date
+        self.__place = place
+    def get_name(self):
+        return self.__name
+    def get_id(self):
+        return self.__id
+    def get_place(self):
+        return self.__place
+    def ch(self):
+        tmp = self.__name.split()
+        self.__name = ' '.join(tmp).title()
+        if self.__date[1] == '/':
+            self.__date = '0' + self.__date
+        if self.__date[4] == '/':
+            self.__date = self.__date[0:3] + '0' + self.__date[3:]
+    def __str__(self):
+        return f'{self.__id} {self.__name} {self.__date} {self.__place}'
+
+class SinhVien(Person):
+    def __init__(self,id, name, date, place, lop, gpa):
+        Person.__init__(self,id,name,date,place)
+        self.__lop = lop
+        self.__gpa = gpa
+    def get_lop(self):
+        return self.__lop
+    def __str__(self):
+        return f'{super().__str__()} {self.__lop} {self.__gpa:.2f}'
+
+class GiaoVien(Person):
+    def __init__(self,id, name, date, place, khoa, luong, lop):
+        Person.__init__(self,id,name,date,place)
+        self.__khoa = khoa
+        self.__luong = luong
+        self.__lop = lop
+    def get_lop(self):
+        return self.__lop
+    def __str__(self):
+        return f'{super().__str__()} {self.__khoa} {self.__luong} {self.__lop}'
+
+    
+if __name__ == '__main__':
+    n = int(input())
+    sv,gv =[], []
+    for i in range(n):
+        id = input()
+        if id[0:2] == 'SV':
+            name,date,place,lop,gpa = input(),input(),input(),input(),float(input())
+            x = SinhVien(id, name, date, place, lop, gpa)
+            x.ch()
+            sv.append(x)
+        else:
+            name,date,place,khoa,luong, lop = input(),input(),input(),input(),int(input()), input()
+            y = GiaoVien(id, name, date, place, khoa, luong, lop)
+            y.ch()
+            gv.append(y)
+    t = input()
+    print('DANH SACH GIAO VIEN PHU TRACH LOP',t,':')
+    for i in gv:
+        if i.get_lop() == t:
+            print(i)
+    print('DANH SACH SINH VIEN LOP',t,':')
+    for i in sv:
+        if i.get_lop() == t:
+            print(i)
