@@ -1,0 +1,50 @@
+from math import *
+class Person:
+    def __init__(self, name, date, place):
+        self.__name = name
+        self.__date = date
+        self.__place = place
+    def get_name(self):
+        return self.__name
+    def ch(self):
+        tmp = self.__name.split()
+        self.__name = ' '.join(tmp).title()
+        if self.__date[1] == '/':
+            self.__date = '0' + self.__date
+        if self.__date[4] == '/':
+            self.__date = self.__date[0:3] + '0' + self.__date[3:]
+    def __str__(self):
+        return f'{self.__name} {self.__date} {self.__place}'
+
+class SinhVien(Person):
+    def __init__(self,id, name, date, place, lop, gpa):
+        Person.__init__(self,name,date,place)
+        self.__id = str(id).zfill(4)
+        self.__lop = lop
+        self.__gpa = gpa
+    def get_id(self):
+        return self.__id
+    def __str__(self):
+        return f'{self.__id} {super().__str__()} {self.__lop} {self.__gpa:.2f}'
+def so_sanh(sv):
+    a = sv.split()
+    res = a[-1] + ' '
+    res += ' '.join(a[:-1])
+    return res
+    
+if __name__ == '__main__':
+    n = int(input())
+    a = []
+    for i in range(n):
+        name = input()
+        date = input()
+        place = input()
+        lop = input()
+        gpa = float(input())
+        sv = SinhVien(i + 1, name, date, place, lop, gpa)
+        sv.ch()
+        a.append(sv)
+    a.sort(key= lambda x : (so_sanh(x.get_name())))
+    for i in a:
+        print(i)
+    
